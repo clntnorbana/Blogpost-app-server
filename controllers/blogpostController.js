@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 
 // CREATE BLOG POST
 const createBlogPost = asyncHandler(async (req, res) => {
-  const { originalname, path } = req.file;
-  const parts = originalname.split(".");
-  const ext = parts[parts.length - 1];
-  const newPath = path + "." + ext;
-  fs.renameSync(path, newPath);
+  // const { originalname, path } = req.file;
+  // const parts = originalname.split(".");
+  // const ext = parts[parts.length - 1];
+  // const newPath = path + "." + ext;
+  // fs.renameSync(path, newPath);
 
   const { title, summary, content } = req.body;
 
@@ -20,9 +20,9 @@ const createBlogPost = asyncHandler(async (req, res) => {
     title,
     summary,
     content,
-    cover: newPath,
     author,
     user_id,
+    // cover: newPath,
   });
 
   if (!blogpost) {
